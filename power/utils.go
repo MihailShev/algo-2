@@ -17,3 +17,7 @@ func parseData(data []string) (float64, int, error) {
 
 	return a, n, nil
 }
+
+func floatToString(f float64) string {
+	return strconv.FormatFloat(f, 'f', 11, 64)
+}

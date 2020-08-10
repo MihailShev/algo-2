@@ -22,7 +22,7 @@ func (p Pow1) Run(data []string) string {
 
 	fmt.Println(time.Since(t))
 
-	return fmt.Sprint(r)
+	return floatToString(r)
 
 }
 
