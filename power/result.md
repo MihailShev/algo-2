@@ -1,4 +1,4 @@
-#Time completed
+#Execution time
 | Test | a             | n           | Iteration   | Pow of 2 & multiplication | Binary decomposition |
 |:----:|:-------------:|:-----------:|:-----------:|:-------------------------:|:--------------------:|
 | 0    | 2             | 10          | 0s          | 0s                        | 0s                   |
