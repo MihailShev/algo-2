@@ -13,15 +13,15 @@ const pathToFibonacciData = "test-data/fibonacci"
 func main() {
 	fmt.Printf("*** Test power by iteration ***\n\n")
 	powByIteration := tester.NewTester(power.Pow1{}, pathToPowerData)
-	powByIteration.RunTest()
+	powByIteration.RunTestWithCount(10)
 
 	fmt.Printf("\n*** Test power by power of 2 with multiplication ***\n\n")
 	powByPow2Multiplication := tester.NewTester(power.Pow2{}, pathToPowerData)
-	powByPow2Multiplication.RunTest()
+	powByPow2Multiplication.RunTestWithCount(10)
 
 	fmt.Printf("\n*** Test power by binary decomposition of the exponent ***\n\n")
 	powByBinaryDecomposition := tester.NewTester(power.Pow3{}, pathToPowerData)
-	powByBinaryDecomposition.RunTest()
+	powByBinaryDecomposition.RunTestWithCount(10)
 
 	fmt.Printf("\n*** Fibonacci by recursion ***\n\n")
 	fibonacciByRecursion := tester.NewTester(fibonacci.Fib1{}, pathToFibonacciData)
@@ -35,5 +35,6 @@ func main() {
 	fibonacciByMatrix := tester.NewTester(fibonacci.Fib3{}, pathToFibonacciData)
 	fibonacciByMatrix.RunTestWithCount(13)
 
+	fmt.Printf("\n*** Finish ***\n")
 	_, _ = fmt.Scanf(" ")
 }
