@@ -2,11 +2,6 @@ package power
 
 // Возведение в степень через двоичное разложение показателя степени
 
-import (
-	"fmt"
-	"time"
-)
-
 type Pow3 struct {
 }
 
@@ -17,10 +12,7 @@ func (p Pow3) Run(data []string) string {
 		return ""
 	}
 
-	t := time.Now()
 	r := p.calc(a, n)
-
-	fmt.Println(time.Since(t))
 
 	return floatToString(r)
 }

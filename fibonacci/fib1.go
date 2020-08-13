@@ -1,12 +1,11 @@
 package fibonacci
 
+// Расчет чисел Фибоначчи через рекурсию
+
 import (
 	"fmt"
 	"strconv"
-	"time"
 )
-
-// Расчет чисел Фибоначчи через рекурсию
 
 type Fib1 struct {
 }
@@ -18,9 +17,7 @@ func (f Fib1) Run(data []string) string {
 		return ""
 	}
 
-	t := time.Now()
 	r := f.calc(n)
-	fmt.Println("Execution time", time.Since(t))
 
 	return fmt.Sprint(r)
 }
