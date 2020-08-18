@@ -1,3 +1,5 @@
+github.com/ALTree/bigfloat v0.0.0-20180506151649-b176f1e721fc h1:64fnazBWLWjn4wk+hpm7gVPhl5kA0TrCzYJ4GCbw1J0=
+github.com/ALTree/bigfloat v0.0.0-20180506151649-b176f1e721fc/go.mod h1:9hy2NiNR6kJzY3N2dE/x+UQtZXiYkjTRADHpAo6p9zI=
 github.com/MihailShev/algo-tester v0.0.2 h1:kpmwLFsI9eDUdmIvbjFEzBk+zKjDItrP+BCayHra5MI=
 github.com/MihailShev/algo-tester v0.0.2/go.mod h1:OEO1DZ/8Ys8jjLpSSllPUuaaz0EyzeM7/TCA+blOOA4=
 github.com/MihailShev/algo-tester v0.0.3 h1:z1pcniXQgZ5UHOtDL8gCC4e6OlxwlPdtQ/rtrGPT5Sk=

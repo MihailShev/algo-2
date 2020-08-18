@@ -4,10 +4,11 @@ package fibonacci
 
 import (
 	"fmt"
+	"math/big"
 	"strconv"
 )
 
-var matrix = [2][2]uint64{[2]uint64{1, 1}, [2]uint64{1, 0}}
+var matrix1 = [2][2]*big.Int{[2]*big.Int{big.NewInt(1), big.NewInt(1)}, [2]*big.Int{big.NewInt(1), big.NewInt(0)}}
 
 type Fib3 struct {
 }
@@ -24,31 +25,47 @@ func (f Fib3) Run(data []string) string {
 	return fmt.Sprint(r)
 }
 
-func (f Fib3) calc(n int) uint64 {
+func (f Fib3) calc(n int) *big.Int {
 	if n == 0 {
-		return 0
+		return zero
 	}
 
 	if n <= 2 {
-		return 1
+		return one
 	}
 
-	result := matrix
+	result := matrix1
 
 	for i := 2; i < n; i++ {
-		result = multiply(result, matrix)
+		result = multiply(result, matrix1)
+
 	}
 
 	return result[0][0]
 }
 
-func multiply(matrixA [2][2]uint64, matrixB [2][2]uint64) [2][2]uint64 {
-	var result [2][2]uint64
+func multiply(matrixA [2][2]*big.Int, matrixB [2][2]*big.Int) [2][2]*big.Int {
+	var result [2][2]*big.Int
 
-	result[0][0] = matrixA[0][0]*matrixB[0][0] + matrixA[0][1]*matrixB[1][0]
-	result[0][1] = matrixA[0][0]*matrixB[0][1] + matrixA[0][1]*matrixB[1][1]
-	result[1][0] = matrixA[1][0]*matrixB[0][0] + matrixA[1][1]*matrixB[1][0]
-	result[1][1] = matrixA[1][0]*matrixB[0][1] + matrixA[1][1]*matrixB[1][1]
+	tmp := big.NewInt(0).Mul(matrixA[0][0], matrixB[0][0])
+	tmp.Add(tmp, big.NewInt(0).Mul(matrixA[0][1], matrixB[1][0]))
+
+	result[0][0] = tmp
+
+	tmp = big.NewInt(0).Mul(matrixA[0][0], matrixB[0][1])
+	tmp = tmp.Add(tmp, big.NewInt(0).Mul(matrixA[0][1], matrixB[1][1]))
+
+	result[0][1] = tmp
+
+	tmp = big.NewInt(0).Mul(matrixA[1][0], matrixB[0][0])
+	tmp = tmp.Add(tmp, big.NewInt(0).Mul(matrixA[1][1], matrixB[1][0]))
+
+	result[1][0] = tmp
+
+	tmp = big.NewInt(0).Mul(matrixA[0][1], matrixB[0][1])
+	tmp = tmp.Add(tmp, big.NewInt(0).Mul(matrixA[1][1], matrixB[1][1]))
+
+	result[1][1] = tmp
 
 	return result
 }
