@@ -1,4 +1,4 @@
-#Time completed
+#Execution time
 | Test   | N    | Recursion       | Golden Rate         | Matrix   |
 |:------:|:----:|:---------------:|:-------------------:|:--------:|
 | 0      | 0    | 0s              | 0s                  | 0s       |
