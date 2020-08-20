@@ -32,14 +32,14 @@ func (f Fib1) calc(n *big.Int) *big.Int {
 
 	if n.Cmp(big.NewInt(2)) == -1 || n.Cmp(big.NewInt(2)) == 0 {
 		return one
+	} else {
+		a := big.NewInt(0).Sub(n, one)
+		b := big.NewInt(0).Sub(n, two)
+
+		resA := f.calc(a)
+		resB := f.calc(b)
+
+		return big.NewInt(0).Add(resA, resB)
 	}
-
-	a := big.NewInt(0).Sub(n, one)
-	b := big.NewInt(0).Sub(n, two)
-
-	resA := f.calc(a)
-	resB := f.calc(b)
-
-	return resA.Add(resA, resB)
 
 }

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/ALTree/bigfloat"
 	"math/big"
-	"strings"
 )
 
 var ratio = big.NewFloat(1.6180339887498948482045868343656)
@@ -18,9 +17,10 @@ func (f Fib2) Run(data []string) string {
 
 	n.SetString(data[0])
 
-	r := f.calc(n)
-
-	return fmt.Sprint(strings.Split(r.String(), ".")[0])
+	tmp := f.calc(n)
+	r := big.NewInt(0)
+	r, _ = tmp.Int(r)
+	return fmt.Sprint(r)
 }
 
 func (f Fib2) calc(n *big.Float) *big.Float {

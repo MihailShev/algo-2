@@ -29,15 +29,15 @@ func main() {
 
 	fmt.Printf("\n*** Fibonacci by golden ratio ***\n\n")
 	fibonacciByGoldenRation := tester.NewTester(fibonacci.Fib2{}, pathToFibonacciData)
-	fibonacciByGoldenRation.RunTestWithCount(12)
+	fibonacciByGoldenRation.RunTestWithCount(14)
 
 	fmt.Printf("\n*** Fibonacci by matrix ***\n\n")
 	fibonacciByMatrix := tester.NewTester(fibonacci.Fib3{}, pathToFibonacciData)
-	fibonacciByMatrix.RunTestWithCount(12)
+	fibonacciByMatrix.RunTestWithCount(14)
 
 	fmt.Printf("\n*** Fibonacci by iteration ***\n\n")
 	fibonacciByIteration := tester.NewTester(fibonacci.Fib4{}, pathToFibonacciData)
-	fibonacciByIteration.RunTestWithCount(12)
+	fibonacciByIteration.RunTestWithCount(14)
 
 	fmt.Printf("\n*** Finish ***\n")
 	_, _ = fmt.Scanf(" ")
