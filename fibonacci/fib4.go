@@ -24,24 +24,12 @@ func (f Fib4) Run(data []string) string {
 }
 
 func (f Fib4) calc(n int) *big.Int {
-	if n == 0 {
-		return big.NewInt(0)
+	a := big.NewInt(0)
+	b := big.NewInt(1)
+
+	for i := 0; i < n; i++ {
+		a, b = b, big.NewInt(0).Add(a, b)
 	}
 
-	if n <= 2 {
-		return big.NewInt(1)
-	}
-
-	prev := big.NewInt(1)
-	curr := big.NewInt(1)
-
-	var result *big.Int
-
-	for i := 2; i < n; i++ {
-		result = big.NewInt(0).Add(prev, curr)
-		prev = curr
-		curr = result
-	}
-
-	return curr
+	return a
 }

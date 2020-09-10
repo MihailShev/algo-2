@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-var matrix1 = [2][2]*big.Int{[2]*big.Int{big.NewInt(1), big.NewInt(1)}, [2]*big.Int{big.NewInt(1), big.NewInt(0)}}
+var startMatrix = [2][2]*big.Int{[2]*big.Int{big.NewInt(1), big.NewInt(1)}, [2]*big.Int{big.NewInt(1), big.NewInt(0)}}
 
 type Fib3 struct {
 }
@@ -34,11 +34,41 @@ func (f Fib3) calc(n int) *big.Int {
 		return one
 	}
 
-	result := matrix1
+	result := startMatrix
+
+	var res [2][2]*big.Int
+
+	pow := n - 1
+
+	for pow > 0 {
+		if pow%2 == 1 {
+			if res[0][0] == nil {
+				res = result
+			} else {
+				res = multiply(res, result)
+			}
+		}
+
+		result = multiply(result, result)
+		pow /= 2
+	}
+
+	return res[0][0]
+}
+
+func (f Fib3) calc2(n int) *big.Int {
+	if n == 0 {
+		return zero
+	}
+
+	if n <= 2 {
+		return one
+	}
+
+	result := startMatrix
 
 	for i := 2; i < n; i++ {
-		result = multiply(result, matrix1)
-
+		result = multiply(result, startMatrix)
 	}
 
 	return result[0][0]
